@@ -14,7 +14,7 @@ class CreatePaymentsTable extends AbstractMigration
       $table =$this->table('payment');
         $table
               ->addColumn('description', 'enum', array( 'values' => 'week, fortnite, month, Sother'))
-              ->addColumn('pay','integer')
+              ->addColumn('pay','float')
               ->addColumn('active', 'boolean')
               ->addColumn('created', 'datetime')
               ->addColumn('modified', 'datetime')
