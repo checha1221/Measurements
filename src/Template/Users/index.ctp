@@ -1,61 +1,57 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Measuremet'), ['controller' => 'Measuremet', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Measuremet'), ['controller' => 'Measuremet', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Payment'), ['controller' => 'Payment', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Payment'), ['controller' => 'Payment', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('gender') ?></th>
-                
-                <th scope="col"><?= $this->Paginator->sort('role') ?></th>
-                
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+
+<div class="jumbotron">
+<div class="row">
+    <div class="col.md-12">
+        <div class="page-heder">
+            <h2>Usuarios</h2>
+        </div>
+        <div class=" table-responsive">
+            <table class="table table-striped table-hover">
+             <thead>
+            <tr   class="info">
+                <th scope="col"><?= $this->Paginator->sort('#') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Apellido') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Genero') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Rol') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
-        <tbody>
+         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->first_name) ?></td>
                 <td><?= h($user->last_name) ?></td>
                 <td><?= h($user->gender) ?></td>
-               
                 <td><?= h($user->role) ?></td>
-                           
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id],   ['class'=>'btn btn-small btn-info']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id],['class'=>'btn btn-small btn-primary']) ?>
+                    <?= $this->Form->postLink('Delete', ['action' => 'borrar' , $user->id],[
+                    'confirm'=> 'eliminar usuario ?','class' => 'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
+            </tbody>
+            </table>
+        </div>
+    <div align="center">
+        <div class="paginator" >
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+          
+            <?= $this->Paginator->prev('< Anterior ') ?>
+            <?= $this->Paginator->numbers(['before' =>'','after' =>'']) ?>
+            <?= $this->Paginator->prev('Siguiente >') ?>
+            
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{pages}}, Mostrando {{current}} Registro(s) de {{count}}  en Total')]) ?></p>
     </div>
+    </div>
+    </div>
+</div>
+
+
+
+  
 </div>
