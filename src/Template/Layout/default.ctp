@@ -26,20 +26,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <?= $this->Html->script(['jquery-3.2.1.min.js','bootstrap.min',]) ?>
     <?= $this->Html->css('bootstrap.min') ?>
-    <?= $this->Html->script(['bootstrap.min', 'jquery-3.2.1.min']) ?>
+   
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-   
+
+<?= $this->element('menu')?>
+
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+    <footer >
+   
+</footer>
 </body>
 </html>

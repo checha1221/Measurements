@@ -1,5 +1,5 @@
 
-<div class="jumbotron">
+
 <div class="row">
     <div class="col.md-12">
         <div class="page-heder">
@@ -54,4 +54,3 @@
 
 
   
-</div>

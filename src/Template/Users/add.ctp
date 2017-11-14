@@ -21,7 +21,7 @@
             echo $this->Form->control('active', ['label' => 'Activo']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Crear')) ?>
+    <?= $this->Form->button(__('Crear'),['class'=>'btn btn-small btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>
   </div>
