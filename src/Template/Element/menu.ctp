@@ -24,7 +24,7 @@
         <li><a href="#">Page 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign Up</a></li>
+        <li><?= $this->Html->link('Logout', ['controller' =>'Users', 'action' => 'logout'])?></li>
         <li><a href="#">Login</a></li>
       </ul>
     </div>
